@@ -1,0 +1,3 @@
+2026-06-20 12:56:11 [main] INFO  api.tests.UserTest - Test data initialised — username: tresa.lang
+2026-06-20 12:56:11 [main] INFO  api.tests.UserTest - === postUserTest started ===
+2026-06-20 12:56:11 [main] INFO  api.endpoints.UserRoutes - Creating user with properties: tresa.lang

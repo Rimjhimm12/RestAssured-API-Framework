@@ -1,33 +1,25 @@
 package api.listener;
 
 import io.qameta.allure.Attachment;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-
-
 public class TestAllureListener implements ITestListener {
+
+    private static final Logger log = LogManager.getLogger(TestAllureListener.class);
 
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 
-
-    // Text attachments for Allure
-//    @Attachment(value = "Page screenshot", type = "image/png")
-//    public byte[] saveScreenshotPNG(WebDriver driver) {
-//        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//    }
-
-    // Text attachments for Allure
     @Attachment(value = "{0}", type = "text/plain")
     public static String saveTextLog(String message) {
         return message;
     }
 
-    // HTML attachments for Allure
     @Attachment(value = "{0}", type = "text/html")
     public static String attachHtml(String html) {
         return html;
@@ -35,47 +27,44 @@ public class TestAllureListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext iTestContext) {
-        System.out.println("I am in onStart method " + iTestContext.getName());
-        //iTestContext.setAttribute("WebDriver", BasePage.getDriver());
+        log.info("Suite STARTED: {}", iTestContext.getName());
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-        System.out.println("I am in onFinish method " + iTestContext.getName());
+        log.info("Suite FINISHED: {} — passed: {}, failed: {}, skipped: {}",
+                iTestContext.getName(),
+                iTestContext.getPassedTests().size(),
+                iTestContext.getFailedTests().size(),
+                iTestContext.getSkippedTests().size());
     }
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println("I am in onTestStart method " + getTestMethodName(iTestResult) + " start");
+        log.info("Test STARTED: {}", getTestMethodName(iTestResult));
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println("I am in onTestSuccess method " + getTestMethodName(iTestResult) + " succeed");
+        log.info("Test PASSED: {}", getTestMethodName(iTestResult));
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
-        Object testClass = iTestResult.getInstance();
-        //WebDriver driver = BasePage.getDriver();
-        // Allure ScreenShotRobot and SaveTestLog
-//        if (DriverFactory.getDriver() instanceof WebDriver) {
-//            System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
-//            saveScreenshotPNG(DriverFactory.getDriver());
-//        }
-        // Save a log on allure.
-        saveTextLog(getTestMethodName(iTestResult) + " failed and screenshot taken!");
+        log.error("Test FAILED: {} — reason: {}",
+                getTestMethodName(iTestResult),
+                iTestResult.getThrowable() != null ? iTestResult.getThrowable().getMessage() : "unknown");
+        saveTextLog(getTestMethodName(iTestResult) + " failed: "
+                + (iTestResult.getThrowable() != null ? iTestResult.getThrowable().getMessage() : "unknown"));
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println("I am in onTestSkipped method " + getTestMethodName(iTestResult) + " skipped");
+        log.warn("Test SKIPPED: {}", getTestMethodName(iTestResult));
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-        System.out.println("Test failed but it is in defined success ratio " + getTestMethodName(iTestResult));
+        log.warn("Test FAILED within success ratio: {}", getTestMethodName(iTestResult));
     }
-
 }

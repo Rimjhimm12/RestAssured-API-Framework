@@ -1,0 +1,6 @@
+2026-06-20 12:58:22 [main] INFO  api.tests.UserTest - Test data initialised — username: thanh.shields
+2026-06-20 12:58:22 [main] INFO  api.tests.UserTest - === postUserTest started ===
+2026-06-20 12:58:22 [main] INFO  api.endpoints.UserRoutes - Creating user with properties: thanh.shields
+2026-06-20 12:58:24 [main] INFO  api.endpoints.UserRoutes - createUser response status: 200
+2026-06-20 12:58:24 [main] DEBUG api.endpoints.UserRoutes - createUser response body: {"code":200,"type":"unknown","message":"1862552664"}
+2026-06-20 12:58:24 [main] INFO  api.tests.UserTest - postUserTest PASSED — status code: 200

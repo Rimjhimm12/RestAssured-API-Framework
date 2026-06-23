@@ -1,0 +1,26 @@
+2026-06-20 13:25:57 [main] INFO  api.tests.UserTest - Test data initialised — username: dudley.crist
+2026-06-20 13:25:57 [main] INFO  api.tests.UserTest - === postUserTest started ===
+2026-06-20 13:25:57 [main] INFO  api.endpoints.UserEndPointsWithProperties - Creating user with properties: dudley.crist
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - createUser response status: 200
+2026-06-20 13:25:59 [main] DEBUG api.endpoints.UserEndPointsWithProperties - createUser response body: {"code":200,"type":"unknown","message":"1360393616"}
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - postUserTest PASSED — status code: 200
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - === getUserByNameTest started ===
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - GET /user/dudley.crist
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - getUser response status: 200
+2026-06-20 13:25:59 [main] DEBUG api.endpoints.UserEndPointsWithProperties - getUser response body: {"id":1360393616,"username":"dudley.crist","firstName":"Donita","lastName":"Keebler","email":"laurence.goodwin@gmail.com","password":"wz82nos","phone":"670-640-6047","userStatus":1}
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - getUserByNameTest PASSED — username verified: dudley.crist
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - === updateUserTest started ===
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - Updating user: dudley.crist
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - PUT /user/dudley.crist
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - updateUser response status: 200
+2026-06-20 13:25:59 [main] DEBUG api.endpoints.UserEndPointsWithProperties - updateUser response body: {"code":200,"type":"unknown","message":"1360393616"}
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - updateUserTest PASSED — user updated successfully
+2026-06-20 13:25:59 [main] INFO  api.tests.UserTest - === deleteUserTest started ===
+2026-06-20 13:25:59 [main] INFO  api.endpoints.UserEndPointsWithProperties - DELETE /user/dudley.crist
+2026-06-20 13:26:00 [main] INFO  api.endpoints.UserEndPointsWithProperties - deleteUser response status: 200
+2026-06-20 13:26:00 [main] DEBUG api.endpoints.UserEndPointsWithProperties - deleteUser response body: {"code":200,"type":"unknown","message":"dudley.crist"}
+2026-06-20 13:26:00 [main] INFO  api.tests.UserTest - User deleted — verifying 404 on subsequent GET
+2026-06-20 13:26:00 [main] INFO  api.endpoints.UserEndPointsWithProperties - GET /user/dudley.crist
+2026-06-20 13:26:00 [main] INFO  api.endpoints.UserEndPointsWithProperties - getUser response status: 404
+2026-06-20 13:26:00 [main] DEBUG api.endpoints.UserEndPointsWithProperties - getUser response body: {"code":1,"type":"error","message":"User not found"}
+2026-06-20 13:26:00 [main] INFO  api.tests.UserTest - deleteUserTest PASSED — user no longer exists

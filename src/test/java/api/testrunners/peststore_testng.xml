@@ -15,6 +15,7 @@
         <classes>
             <class name="api.tests.UserTest" />
             <class name="api.tests.UserDataDrivenTest" />
+            <class name ="api.tests.OrderTest" />
         </classes>
     </test>
 </suite>

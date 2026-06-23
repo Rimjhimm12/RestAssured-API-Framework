@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class StoreEndPoints {
+public class OrderEndPoints {
     //Create order
     public static Response createOrder(Order payload){
         Response response = given()
@@ -44,7 +44,7 @@ public class StoreEndPoints {
                 .accept("application/json")
                 .pathParams("orderId", orderId)
                 .when()
-                .get(Routes.delete_order_url);
+                .delete(Routes.delete_order_url);
         return response;
     }
 }

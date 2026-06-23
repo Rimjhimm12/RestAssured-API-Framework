@@ -1,3 +1,0 @@
-2026-06-20 12:46:00 [main] INFO  api.tests.UserTest - Test data initialised — username: barry.mueller
-2026-06-20 12:46:00 [main] INFO  api.tests.UserTest - === postUserTest started ===
-2026-06-20 12:46:00 [main] INFO  api.endpoints.UserRoutes - Creating user with properties: barry.mueller

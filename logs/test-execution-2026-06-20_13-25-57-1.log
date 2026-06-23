@@ -1,6 +1,0 @@
-2026-06-20 13:13:31 [main] INFO  api.tests.UserTest - Test data initialised — username: jan.okon
-2026-06-20 13:13:31 [main] INFO  api.tests.UserTest - === postUserTest started ===
-2026-06-20 13:13:31 [main] INFO  api.endpoints.UserEndPointsWithProperties - Creating user with properties: jan.okon
-2026-06-20 13:13:33 [main] INFO  api.endpoints.UserEndPointsWithProperties - createUser response status: 200
-2026-06-20 13:13:33 [main] DEBUG api.endpoints.UserEndPointsWithProperties - createUser response body: {"code":200,"type":"unknown","message":"50297459"}
-2026-06-20 13:13:33 [main] INFO  api.tests.UserTest - postUserTest PASSED — status code: 200

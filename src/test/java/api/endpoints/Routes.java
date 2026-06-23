@@ -12,7 +12,7 @@ public class Routes {
     public static String put_url = BASE_URL + "/user/{username}";
     public static String delete_url = BASE_URL + "/user/{username}";
 
-    //Store Module
+    //Order Module
     public static String get_all_inventory_url =BASE_URL + "/store/inventory";
     public static String post_order_url = BASE_URL + "/store/order";
     public static String get_order_url = BASE_URL + "/store/order/{orderId}";

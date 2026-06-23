@@ -1,0 +1,4 @@
+reports/** linguist-generated
+allure-results/** linguist-generated
+logs/** linguist-generated
+target/** linguist-generated

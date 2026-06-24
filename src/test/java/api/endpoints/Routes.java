@@ -19,5 +19,9 @@ public class Routes {
     public static String delete_order_url = BASE_URL + "/store/order/{orderId}";
 
     //pet Module
-
+    public static String post_pet_url = BASE_URL + "/pet";
+    public static String get_pet_url = BASE_URL + "/pet/{petId}";
+    public static String put_pet_url = BASE_URL + "/pet";
+    public static String update_pet_url = BASE_URL + "/pet/{petId}";
+    public static String delete_pet_url = BASE_URL + "/pet/{petId}";
 }
